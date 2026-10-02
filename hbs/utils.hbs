@@ -19,7 +19,7 @@ namespace eval utils {
 
     hbs::SetTop "tb_cosim"
 
-    hbs::AddDep afbd::gen \
+    hbs::AddDep amba-fbd::gen \
       $hdl -path autogen/$ctx/tb-$sw \
       $sw -path autogen/$ctx/tb-$sw \
       json -path autogen/$ctx \
@@ -28,19 +28,19 @@ namespace eval utils {
     hbs::AddDep $hdl\::cosim::src
     hbs::AddFile *.vhd
 
-    hbs::SetGeneric G_SW_GW_FIFO_PATH "/tmp/afbd/$ctx/$sw-to-$hdl"
-    hbs::SetGeneric G_GW_SW_FIFO_PATH "/tmp/afbd/$ctx/$hdl-to-$sw"
+    hbs::SetGeneric G_SW_GW_FIFO_PATH "/tmp/amba-fbd/$ctx/$sw-to-$hdl"
+    hbs::SetGeneric G_GW_SW_FIFO_PATH "/tmp/amba-fbd/$ctx/$hdl-to-$sw"
 
-    set logDir "/tmp/afbd/$ctx/tb-$sw"
+    set logDir "/tmp/amba-fbd/$ctx/tb-$sw"
     if {[file exist $logDir] eq 0} {
       file mkdir $logDir
     }
   }
 
   proc runPython {ctx hdl sw} {
-    set swGwFifo "/tmp/afbd/$ctx/$sw-to-$hdl"
-    set gwSwFifo "/tmp/afbd/$ctx/$hdl-to-$sw"
-    set logDir "/tmp/afbd/$ctx/tb-$sw"
+    set swGwFifo "/tmp/amba-fbd/$ctx/$sw-to-$hdl"
+    set gwSwFifo "/tmp/amba-fbd/$ctx/$hdl-to-$sw"
+    set logDir "/tmp/amba-fbd/$ctx/tb-$sw"
     set reg_json_file "../../../../../autogen/$ctx/reg.json"
     set const_json_file "../../../../../autogen/$ctx/const.json"
 
@@ -68,9 +68,9 @@ namespace eval utils {
 
     exec gcc -Wall {*}[glob *.c] -o tb >@ stdout
 
-    set swGwFifo "/tmp/afbd/$ctx/$sw-to-$hdl"
-    set gwSwFifo "/tmp/afbd/$ctx/$hdl-to-$sw"
-    set logDir "/tmp/afbd/$ctx/tb-$sw"
+    set swGwFifo "/tmp/amba-fbd/$ctx/$sw-to-$hdl"
+    set gwSwFifo "/tmp/amba-fbd/$ctx/$hdl-to-$sw"
+    set logDir "/tmp/amba-fbd/$ctx/tb-$sw"
 
     exec ./tb $swGwFifo $gwSwFifo > $logDir/$hdl.log &
 

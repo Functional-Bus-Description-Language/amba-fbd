@@ -73,7 +73,7 @@ static void cosim_iface_wait(uint32_t time_ns)
 	}
 }
 
-static int cosim_iface_write(afbd_iface_t *iface, const uintptr_t addr, const uint32_t data)
+static int cosim_iface_write(amba_fbd_iface_t *iface, const uintptr_t addr, const uint32_t data)
 {
 	const uint8_t byte_addr = addr << 2;
 
@@ -109,7 +109,7 @@ static int cosim_iface_write(afbd_iface_t *iface, const uintptr_t addr, const ui
 }
 
 
-static int cosim_iface_writeb(afbd_iface_t *iface, const uintptr_t addr, const uint32_t * buf, size_t count)
+static int cosim_iface_writeb(amba_fbd_iface_t *iface, const uintptr_t addr, const uint32_t * buf, size_t count)
 {
 	fprintf(stderr, "cosim iface: cosim_iface_writeb unimplemented");
 	exit(EXIT_FAILURE);
@@ -129,7 +129,7 @@ static uint32_t bin_to_uint32(const char * const s)
 	return u32;
 }
 
-static int cosim_iface_read(afbd_iface_t *iface, const uintptr_t addr, uint32_t *const data)
+static int cosim_iface_read(amba_fbd_iface_t *iface, const uintptr_t addr, uint32_t *const data)
 {
 	const uint8_t byte_addr = addr << 2;
 
@@ -170,7 +170,7 @@ static int cosim_iface_read(afbd_iface_t *iface, const uintptr_t addr, uint32_t 
 }
 
 
-static int cosim_iface_readb(afbd_iface_t *iface, const uintptr_t addr, uint32_t * buf, size_t count)
+static int cosim_iface_readb(amba_fbd_iface_t *iface, const uintptr_t addr, uint32_t * buf, size_t count)
 {
 	fprintf(stderr, "cosim iface: cosim_iface_readb unimplemented");
 	exit(EXIT_FAILURE);
@@ -212,9 +212,9 @@ void cosim_iface_init(char *wr_fifo_path, char *rd_fifo_path, delay_function_t d
 	}
 }
 
-afbd_iface_t cosim_iface_iface(void)
+amba_fbd_iface_t cosim_iface_iface(void)
 {
-	afbd_iface_t iface = {
+	amba_fbd_iface_t iface = {
 		read: cosim_iface_read,
 		write: cosim_iface_write,
 		readb: cosim_iface_readb,

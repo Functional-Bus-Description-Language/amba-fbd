@@ -13,10 +13,10 @@ Supported targets:
   - json      JSON target,
   - python    Python target,
   - vhdl-apb  VHDL target for APB.
-To check valid flags and parameters for a given target type: 'afbd {target} -help'.
+To check valid flags and parameters for a given target type: 'amba-fbd {target} -help'.
 
 Usage:
-  afbd [global flag or parameter] [{{target}} [target flag or parameter] ...] ... path/to/fbd/file/with/main/bus
+  amba-fbd [global flag or parameter] [{{target}} [target flag or parameter] ...] ... path/to/fbd/file/with/main/bus
 
   At least one target must be specified. The last argument is always a path
   to the fbd file containing a definition of the main bus, unless it is
@@ -32,7 +32,7 @@ Flags:
 Parameters:
   -main          Name of the main bus. Useful for testbenches.
   -path          Path for target directories with output files.
-                 The default is 'afbd' directory in the current working directory.
+                 The default is 'amba-fbd' directory in the current working directory.
 `
 
 func printHelp() {

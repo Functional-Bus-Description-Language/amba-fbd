@@ -2,7 +2,7 @@ import sys
 import traceback
 
 import cosim
-import afbd
+import amba_fbd as fbd
 
 
 WRITE_FIFO_PATH = sys.argv[1]
@@ -14,7 +14,7 @@ CLK_PERIOD = 10
 iface = cosim.Iface(WRITE_FIFO_PATH, READ_FIFO_PATH)
 
 try:
-    main, _ = afbd.generate(iface, REG_JSON)
+    main, _ = fbd.generate(iface, REG_JSON)
 
     id = main.ID.read()
     assert id == main.ID.value, f"Read wrong ID {id}, expecting {main.ID.value}"

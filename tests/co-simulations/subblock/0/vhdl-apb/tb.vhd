@@ -35,7 +35,7 @@ begin
 
   cosim_interface(G_SW_GW_FIFO_PATH, G_GW_SW_FIFO_PATH, clk, req, com);
 
-  afbd_main : entity afbd.Main
+  main : entity amba_fbd.Main
   port map (
     clk_i => clk,
     rst_i => '0',
@@ -49,7 +49,7 @@ begin
   );
 
 
-  afbd_blk0 : entity afbd.Blk0
+  blk0 : entity amba_fbd.Blk0
   port map (
     clk_i => clk,
     rst_i => '0',
@@ -62,7 +62,7 @@ begin
   );
 
 
-  afbd_blk1 : entity afbd.Blk1
+  blk1 : entity amba_fbd.Blk1
   port map (
     clk_i => clk,
     rst_i => '0',
@@ -77,7 +77,7 @@ begin
   );
 
 
-  afbd_blk2 : entity afbd.Blk2
+  blk2 : entity amba_fbd.Blk2
   port map (
     clk_i => clk,
     rst_i => '0',

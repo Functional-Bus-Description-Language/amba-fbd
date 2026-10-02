@@ -37,10 +37,10 @@ func genProc(p *fn.Proc, blk *fn.Block, hFmts *BlockHFormatters, cFmts *BlockCFo
 }
 
 func genProcSignature(p *fn.Proc, blk *fn.Block, hFmts *BlockHFormatters) string {
-	prefix := "int afbd_" + hFmts.BlockName + "_" + p.Name
+	prefix := "int amba_fbd_" + hFmts.BlockName + "_" + p.Name
 
 	params := strings.Builder{}
-	params.WriteString("afbd_iface_t * const iface")
+	params.WriteString("amba_fbd_iface_t * const iface")
 
 	for _, p := range p.Params {
 		params.WriteString(

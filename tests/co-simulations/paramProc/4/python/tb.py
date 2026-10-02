@@ -3,7 +3,7 @@ import sys
 import traceback
 
 import cosim
-import afbd
+import amba_fbd as fbd
 
 WRITE_FIFO_PATH = sys.argv[1]
 READ_FIFO_PATH = sys.argv[2]
@@ -12,7 +12,7 @@ REG_JSON = sys.argv[3]
 try:
     iface = cosim.Iface(WRITE_FIFO_PATH, READ_FIFO_PATH)
 
-    main, _ = afbd.generate(iface, REG_JSON)
+    main, _ = fbd.generate(iface, REG_JSON)
 
     vec = []
     for _ in range(10):

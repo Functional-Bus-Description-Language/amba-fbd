@@ -36,9 +36,9 @@ func Parse() {
 			printVersion()
 		default:
 			if isValidTarget(arg) {
-				log.Fatalf("missing main file, check 'afbd -help'")
+				log.Fatalf("missing main file, check 'amba-fbd -help'")
 			} else {
-				log.Fatalf("'%s' is not valid target, check 'afbd -help'", arg)
+				log.Fatalf("'%s' is not valid target, check 'amba-fbd -help'", arg)
 			}
 		}
 	}
@@ -91,7 +91,7 @@ func Parse() {
 		} else if !isValidParam(arg, target) && !isValidFlag(arg, target) && !expectArg {
 			log.Fatalf(
 				"'%s' is not valid flag or parameter for '%s' target, "+
-					"run 'afbd %[2]s -help' to see valid flags and parameters",
+					"run 'amba-fbd %[2]s -help' to see valid flags and parameters",
 				arg, target,
 			)
 		} else if arg == "-help" {
@@ -115,14 +115,14 @@ func Parse() {
 
 	// Default values handling.
 	if Path == "" {
-		Path = "afbd"
+		Path = "amba-fbd"
 	}
 	if MainBus == "" {
 		MainBus = "main"
 	}
 
 	if !CSync.Present && !Json.Present && !Python.Present && !VhdlApb.Present {
-		fmt.Println("no target specified, run 'afbd -help' to check valid targets")
+		fmt.Println("no target specified, run 'amba-fbd -help' to check valid targets")
 		os.Exit(1)
 	}
 

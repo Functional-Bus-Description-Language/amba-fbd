@@ -20,9 +20,9 @@ var busWidth int64
 
 var readType c.Type
 
-//go:embed templates/afbd.h
+//go:embed templates/amba_fbd.h
 var afbdHeaderTmplStr string
-var afbdHeaderTmpl = template.Must(template.New("C-Sync afbd.h").Parse(afbdHeaderTmplStr))
+var afbdHeaderTmpl = template.Must(template.New("C-Sync amba_fbd.h").Parse(afbdHeaderTmplStr))
 
 type afbdHeaderFormatters struct {
 	BusWidth int64
@@ -36,7 +36,7 @@ func Generate(bus *fn.Block, pkgsConsts map[string]*pkg.Package) {
 		log.Fatalf("generate C-Sync: %v", err)
 	}
 
-	hFile, err := os.Create(path.Join(args.CSync.Path, "afbd.h"))
+	hFile, err := os.Create(path.Join(args.CSync.Path, "amba_fbd.h"))
 	if err != nil {
 		log.Fatalf("generate C-Sync: %v", err)
 	}

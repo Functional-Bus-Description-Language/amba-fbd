@@ -33,19 +33,19 @@ func genStaticSingleOneReg(st *fn.Static, blk *fn.Block, hFmts *BlockHFormatters
 	rTyp := c.WidthToReadType(st.Width)
 
 	hFmts.Code += fmt.Sprintf(
-		"\nextern const %s afbd_%s_%s;\n",
+		"\nextern const %s amba_fbd_%s_%s;\n",
 		wTyp.String(), hFmts.BlockName, st.Name,
 	)
 
 	signature := fmt.Sprintf(
-		"int afbd_%s_%s_read(afbd_iface_t * const iface, %s const data)",
+		"int amba_fbd_%s_%s_read(amba_fbd_iface_t * const iface, %s const data)",
 		hFmts.BlockName, st.Name, rTyp.String(),
 	)
 
 	hFmts.Code += fmt.Sprintf("%s;\n", signature)
 
 	cFmts.Code += fmt.Sprintf(
-		"\nconst %s afbd_%s_%s = %s;\n",
+		"\nconst %s amba_fbd_%s_%s = %s;\n",
 		wTyp.String(), hFmts.BlockName, st.Name,
 		// XXX: Uint64 is currently used. Below code needs fix if static is longer than 64 bits.
 		fmt.Sprintf("0x%s", strconv.FormatUint(st.InitValue.Uint64(), 16)),

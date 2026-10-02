@@ -13,7 +13,7 @@ import (
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/pkg"
 )
 
-//go:embed templates/afbd.py
+//go:embed templates/amba_fbd.py
 var pythonTmplStr string
 var pythonTmpl = template.Must(template.New("Python module").Parse(pythonTmplStr))
 
@@ -25,7 +25,7 @@ func Generate(bus *fn.Block, pkgsConsts map[string]*pkg.Package) {
 		log.Fatalf("generate Python: %v", err)
 	}
 
-	f, err := os.Create(path.Join(args.Python.Path, "afbd.py"))
+	f, err := os.Create(path.Join(args.Python.Path, "amba_fbd.py"))
 	if err != nil {
 		log.Fatalf("generate Python: %v", err)
 	}

@@ -1,6 +1,6 @@
-[![Tests](https://github.com/Functional-Bus-Description-Language/afbd/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/Functional-Bus-Description-Language/afbd/actions?query=master)
+[![Tests](https://github.com/Functional-Bus-Description-Language/amba-fbd/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/Functional-Bus-Description-Language/amba-fbd/actions?query=master)
 
-# afbd
+# amba-fbd
 
 Functional Bus Description Language compiler backend for Advanced Microcontroller Bus Architecture 5 (AMBA5) specifications.
 
@@ -14,7 +14,7 @@ Supported targets:
 
 ### go
 ```
-go install github.com/Functional-Bus-Description-Language/afbd/cmd/afbd@latest
+go install github.com/Functional-Bus-Description-Language/amba-fbd/cmd/amba-fbd@latest
 ```
 
 Go installation installs to go configured path.
@@ -22,7 +22,7 @@ Go installation installs to go configured path.
 ### Manual
 
 ```
-git clone https://github.com/Functional-Bus-Description-Language/afbd.git
+git clone https://github.com/Functional-Bus-Description-Language/amba-fbd.git
 make
 make install
 ```

@@ -1,4 +1,4 @@
-NAME=afbd
+NAME=amba-fbd
 
 .PHONY: default all build help fmt vet install uninstall
 
@@ -39,14 +39,14 @@ lint:
 	golangci-lint run
 
 pylint:
-	pylint --disable=all --enable=E internal/python/templates/afbd.py
+	pylint --disable=all --enable=E internal/python/templates/amba_fbd.py
 
 # Test targets
 test:
 	go test ./...
 
 tb:
-	hbs test afbd
+	hbs test amba-fbd
 
 
 # Installation targets

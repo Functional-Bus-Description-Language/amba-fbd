@@ -1,4 +1,4 @@
-namespace eval afbd::vhdl-apb::static-0 {
+namespace eval amba-fbd::vhdl-apb::static-0 {
   variable ctx [hbs::utils::ctxName [namespace current]]
   variable hdl [hbs::utils::hdlName [namespace current]]
 
@@ -7,7 +7,7 @@ namespace eval afbd::vhdl-apb::static-0 {
     hbs::SetTool "nvc"
     hbs::SetTop "tb_cosim"
 
-    hbs::AddDep afbd::gen \
+    hbs::AddDep amba-fbd::gen \
       -add-timestamp \
       $hdl -path autogen/$ctx/tb-$sw \
       $sw -path autogen/$ctx/tb-$sw \
@@ -17,10 +17,10 @@ namespace eval afbd::vhdl-apb::static-0 {
     hbs::AddDep $hdl\::cosim::src
     hbs::AddFile *.vhd
 
-    hbs::SetGeneric G_SW_GW_FIFO_PATH "/tmp/afbd/$ctx/$sw-to-$hdl"
-    hbs::SetGeneric G_GW_SW_FIFO_PATH "/tmp/afbd/$ctx/$hdl-to-$sw"
+    hbs::SetGeneric G_SW_GW_FIFO_PATH "/tmp/amba-fbd/$ctx/$sw-to-$hdl"
+    hbs::SetGeneric G_GW_SW_FIFO_PATH "/tmp/amba-fbd/$ctx/$hdl-to-$sw"
 
-    set logDir "/tmp/afbd/$ctx/tb-$sw"
+    set logDir "/tmp/amba-fbd/$ctx/tb-$sw"
     if {[file exist $logDir] eq 0} {
       file mkdir $logDir
     }

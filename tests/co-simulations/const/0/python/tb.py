@@ -2,7 +2,7 @@ import sys
 import traceback
 
 import cosim
-import afbd
+import amba_fbd as fbd
 
 
 WRITE_FIFO_PATH = sys.argv[1]
@@ -13,7 +13,7 @@ CONST_JSON = sys.argv[4]
 iface = cosim.Iface(WRITE_FIFO_PATH, READ_FIFO_PATH)
 
 try:
-    main, consts = afbd.generate(iface, REG_JSON, CONST_JSON)
+    main, consts = fbd.generate(iface, REG_JSON, CONST_JSON)
 
 
     print("\n\nTesting int constant")
@@ -21,7 +21,7 @@ try:
     read = main.st.read()
     assert (
         read == consts['main']['C']
-    ), f"read value {read} differs from constant value {afbd.mainPkg.C}"
+    ), f"read value {read} differs from constant value {fbd.mainPkg.C}"
 
 
     print("\n\nTesting int list constants")

@@ -30,7 +30,7 @@ func genStatusSingle(st *fn.Status, blk *fn.Block, hFmts *BlockHFormatters, cFmt
 func genStatusSingleOneReg(st *fn.Status, blk *fn.Block, hFmts *BlockHFormatters, cFmts *BlockCFormatters) {
 	typ := c.WidthToReadType(st.Width)
 	signature := fmt.Sprintf(
-		"int afbd_%s_%s_read(afbd_iface_t * const iface, %s const data)",
+		"int amba_fbd_%s_%s_read(amba_fbd_iface_t * const iface, %s const data)",
 		hFmts.BlockName, st.Name, typ.String(),
 	)
 

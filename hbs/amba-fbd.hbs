@@ -1,6 +1,6 @@
-# This file comes from https://github.com/Functional-Bus-Description-Language/afbd.
+# This file comes from https://github.com/Functional-Bus-Description-Language/amba-fbd.
 
-namespace eval afbd {
+namespace eval amba-fbd {
   proc _getVhdlFilesDir {args} {
     set dir ""
     set target ""
@@ -32,7 +32,7 @@ namespace eval afbd {
   }
 
   proc gen {args} {
-    exec afbd {*}$args
+    exec amba-fbd {*}$args
 
     set vhdlFilesDir [_getVhdlFilesDir {*}$args]
     if {$vhdlFilesDir != ""} {
@@ -44,7 +44,7 @@ namespace eval afbd {
         hbs::AddDep vhdl::amba5::apb::crossbar::src
       }
 
-      hbs::SetLib "afbd"
+      hbs::SetLib "amba_fbd"
 
       # apb.vhd must be analyzed as the first one
       hbs::AddFile "$vhdlFilesDir/apb.vhd"

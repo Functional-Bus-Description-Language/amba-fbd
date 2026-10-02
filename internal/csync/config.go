@@ -32,11 +32,11 @@ func genConfigSingleOneReg(cfg *fn.Config, blk *fn.Block, hFmts *BlockHFormatter
 	wType := c.WidthToWriteType(cfg.Width)
 
 	readSignature := fmt.Sprintf(
-		"int afbd_%s_%s_read(afbd_iface_t * const iface, %s const data)",
+		"int amba_fbd_%s_%s_read(amba_fbd_iface_t * const iface, %s const data)",
 		hFmts.BlockName, cfg.Name, rType.String(),
 	)
 	writeSignature := fmt.Sprintf(
-		"int afbd_%s_%s_write(afbd_iface_t * const iface, %s const data)",
+		"int amba_fbd_%s_%s_write(amba_fbd_iface_t * const iface, %s const data)",
 		hFmts.BlockName, cfg.Name, wType.String(),
 	)
 

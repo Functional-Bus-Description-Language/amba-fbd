@@ -9,8 +9,8 @@ context cosim_context is
   library ltypes;
     use ltypes.types.all;
 
-  library afbd;
-    use afbd.apb;
-    use afbd.apb.all;
+  library amba_fbd;
+    use amba_fbd.apb;
+    use amba_fbd.apb.all;
 
 end context;

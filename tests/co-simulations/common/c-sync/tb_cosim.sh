@@ -5,17 +5,17 @@ CONTEXT=$1
 ENTITY=$2
 HDL=$3
 
-BUILDDIR="../../../build/afbd/$CONTEXT/$ENTITY/c-sync/$HDL/"
+BUILDDIR="../../../build/amba-fbd/$CONTEXT/$ENTITY/c-sync/$HDL/"
 IFACEDIR="../../../tests/co-simulations/common/c-sync/"
-LOGDIR="/tmp/afbd/$CONTEXT/$ENTITY/c-sync/"
-FIFOSPATH="/tmp/afbd/$CONTEXT/$ENTITY/"
+LOGDIR="/tmp/amba-fbd/$CONTEXT/$ENTITY/c-sync/"
+FIFOSPATH="/tmp/amba-fbd/$CONTEXT/$ENTITY/"
 SRCDIR="../../../tests/co-simulations/$CONTEXT/$ENTITY/c-sync/"
 
 cp ${IFACEDIR}cosim_iface.* $BUILDDIR
 cp ${SRCDIR}* $BUILDDIR
 
 cd $BUILDDIR
-gcc -Wall *.c afbd/*.c -o tb
+gcc -Wall *.c amba-fbd/*.c -o tb
 
 mkdir -p $LOGDIR
 

@@ -5,15 +5,15 @@
 
 #include "cosim_iface.h"
 
-#include "afbd.h"
+#include "amba_fbd.h"
 #include "main.h"
-#define AFBD_IFACE &iface
+#define AMBA_FBD_IFACE &iface
 
 
 int main(int argc, char *argv[]) {
 	assert(argc == 3);
 
-	afbd_iface_t iface = cosim_iface_iface();
+	amba_fbd_iface_t iface = cosim_iface_iface();
 
 	cosim_iface_init(argv[1], argv[2], NULL);
 
@@ -27,14 +27,14 @@ int main(int argc, char *argv[]) {
 
 	uint32_t err;
 
-	err = afbd_main_add(&iface, a, b);
+	err = amba_fbd_main_add(&iface, a, b);
 	if (err) {
 		fprintf(stderr, "error calling add function: %d", err);
 		cosim_iface_end(1);
 	}
 
 	uint32_t result;
-	err = afbd_read(main_result, &result);
+	err = amba_fbd_read(main_result, &result);
 	if (err) {
 		fprintf(stderr, "error reading result: %d", err);
 		cosim_iface_end(1);

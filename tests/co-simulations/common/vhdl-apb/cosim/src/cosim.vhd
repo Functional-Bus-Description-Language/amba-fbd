@@ -91,7 +91,7 @@ package body cosim is
         flush(wr_pipe);
 
         if end_status /= 0 then
-          report "end status " & integer'image(end_status) & ", check proper log in /tmp/afbd/..." severity failure;
+          report "end status " & integer'image(end_status) & ", check proper log in /tmp/amba-fbd/..." severity failure;
         end if;
 
         file_close(rd_pipe);

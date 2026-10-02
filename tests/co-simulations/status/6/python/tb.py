@@ -2,7 +2,7 @@ import sys
 import traceback
 
 import cosim
-import afbd
+import amba_fbd as fbd
 
 
 WRITE_FIFO_PATH = sys.argv[1]
@@ -12,7 +12,7 @@ REG_JSON = sys.argv[3]
 iface = cosim.Iface(WRITE_FIFO_PATH, READ_FIFO_PATH)
 
 try:
-    main, _ = afbd.generate(iface, REG_JSON)
+    main, _ = fbd.generate(iface, REG_JSON)
 
     print("Testing whole array read")
     data = main.sts.read()

@@ -2,8 +2,8 @@ library work;
   context work.cosim_context;
   use work.cosim.all;
 
-library afbd;
-  use afbd.main_pkg.all;
+library amba_fbd;
+  use amba_fbd.main_pkg.all;
 
 
 entity tb_cosim is
@@ -37,7 +37,7 @@ begin
 
   cosim_interface(G_SW_GW_FIFO_PATH, G_GW_SW_FIFO_PATH, clk, req, com);
 
-  afbd_main : entity afbd.Main
+  main : entity amba_fbd.Main
   port map (
     clk_i => clk,
     rst_i => '0',

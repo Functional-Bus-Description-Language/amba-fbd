@@ -3,7 +3,7 @@ import sys
 import traceback
 
 import cosim
-import afbd
+import amba_fbd as fbd
 
 WRITE_FIFO_PATH = sys.argv[1]
 READ_FIFO_PATH = sys.argv[2]
@@ -13,7 +13,7 @@ CONST_JSON = sys.argv[4]
 try:
     iface = cosim.Iface(WRITE_FIFO_PATH, READ_FIFO_PATH)
 
-    main, const = afbd.generate(iface, REG_JSON, CONST_JSON)
+    main, const = fbd.generate(iface, REG_JSON, CONST_JSON)
 
     data = []
     for i in range(const['main']['DEPTH']):
