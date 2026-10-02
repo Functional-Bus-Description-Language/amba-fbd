@@ -5,11 +5,11 @@ import (
 	"os"
 	"sync"
 
-	"github.com/Functional-Bus-Description-Language/afbd/internal/args"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/utils"
-
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/fn"
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/pkg"
+
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/args"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/utils"
 )
 
 var busWidth int64

@@ -1,8 +1,9 @@
 package utils
 
 import (
-	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/fn"
 	"log"
+
+	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/fn"
 )
 
 // Block is a wrapper for fn.Block. It is needed, because in some languages

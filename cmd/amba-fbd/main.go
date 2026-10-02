@@ -1,17 +1,17 @@
 package main
 
 import (
-	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl"
-
-	"github.com/Functional-Bus-Description-Language/afbd/internal/args"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/csync"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/json"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/python"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/vhdlapb"
-
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl"
+
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/args"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/csync"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/json"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/python"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/vhdlapb"
 )
 
 type Logger struct{}

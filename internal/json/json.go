@@ -6,10 +6,10 @@ import (
 	"os"
 	"path"
 
-	"github.com/Functional-Bus-Description-Language/afbd/internal/args"
-
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/fn"
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/pkg"
+
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/args"
 )
 
 func Generate(bus *fn.Block, pkgsConsts map[string]*pkg.Package) {

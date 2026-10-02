@@ -1,4 +1,4 @@
-module github.com/Functional-Bus-Description-Language/afbd
+module github.com/Functional-Bus-Description-Language/amba-fbd
 
 go 1.26.0
 

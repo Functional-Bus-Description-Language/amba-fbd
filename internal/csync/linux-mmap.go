@@ -9,7 +9,7 @@ import (
 
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/fn"
 
-	"github.com/Functional-Bus-Description-Language/afbd/internal/args"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/args"
 )
 
 //go:embed templates/linux-mmap-iface.h

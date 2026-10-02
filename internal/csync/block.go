@@ -7,11 +7,10 @@ import (
 	"os"
 	"path"
 	"sync"
-
-	"github.com/Functional-Bus-Description-Language/afbd/internal/args"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/utils"
-
 	"text/template"
+
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/args"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/utils"
 )
 
 //go:embed templates/block.h

@@ -11,9 +11,9 @@ import (
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/fn"
 	"github.com/Functional-Bus-Description-Language/go-fbdl/pkg/fbdl/pkg"
 
-	"github.com/Functional-Bus-Description-Language/afbd/internal/args"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/c"
-	"github.com/Functional-Bus-Description-Language/afbd/internal/utils"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/args"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/c"
+	"github.com/Functional-Bus-Description-Language/amba-fbd/internal/utils"
 )
 
 var busWidth int64
@@ -21,10 +21,10 @@ var busWidth int64
 var readType c.Type
 
 //go:embed templates/amba_fbd.h
-var afbdHeaderTmplStr string
-var afbdHeaderTmpl = template.Must(template.New("C-Sync amba_fbd.h").Parse(afbdHeaderTmplStr))
+var headerTmplStr string
+var headerTmpl = template.Must(template.New("C-Sync amba_fbd.h").Parse(headerTmplStr))
 
-type afbdHeaderFormatters struct {
+type headerFormatters struct {
 	BusWidth int64
 }
 
@@ -43,11 +43,11 @@ func Generate(bus *fn.Block, pkgsConsts map[string]*pkg.Package) {
 
 	readType = c.WidthToReadType(bus.Width)
 
-	hFmts := afbdHeaderFormatters{
+	hFmts := headerFormatters{
 		BusWidth: bus.Width,
 	}
 
-	err = afbdHeaderTmpl.Execute(hFile, hFmts)
+	err = headerTmpl.Execute(hFile, hFmts)
 	if err != nil {
 		log.Fatalf("generate C-Sync: %v", err)
 	}
