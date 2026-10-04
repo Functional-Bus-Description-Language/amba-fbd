@@ -28,7 +28,7 @@ namespace eval amba-fbd {
       }
     }
 
-    return [pwd]/$dir
+    return [file join [pwd] $dir]
   }
 
   proc gen {args} {
