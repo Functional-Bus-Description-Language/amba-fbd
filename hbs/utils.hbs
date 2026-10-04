@@ -9,7 +9,8 @@ namespace eval utils {
     return [regsub {\-} [lindex [split $ns ::] end] /]
   }
 
-  proc setupHdl {ctx hdl sw} {
+  # args are extra arguments forwarded to the amba-fbd call.
+  proc setupHdl {ctx hdl sw args} {
     hbs::SetTool "nvc"
 
     if {$hbs::Tool == "nvc"} {
@@ -19,10 +20,13 @@ namespace eval utils {
 
     hbs::SetTop "tb_cosim"
 
+    # JSON must belong to the same generation as the HDL and software.
+    # This is particularly important for timestamp register tests.
     hbs::AddDep amba-fbd::gen \
+      {*}$args \
       $hdl -path autogen/$ctx/tb-$sw \
       $sw -path autogen/$ctx/tb-$sw \
-      json -path autogen/$ctx \
+      json -path autogen/$ctx/$hdl/$sw \
       [hbs::ThisCoreDir]/../bus.fbd
 
     hbs::AddDep $hdl\::cosim::src
@@ -41,8 +45,8 @@ namespace eval utils {
     set swGwFifo "/tmp/amba-fbd/$ctx/$sw-to-$hdl"
     set gwSwFifo "/tmp/amba-fbd/$ctx/$hdl-to-$sw"
     set logDir "/tmp/amba-fbd/$ctx/tb-$sw"
-    set reg_json_file "../../../../../autogen/$ctx/reg.json"
-    set const_json_file "../../../../../autogen/$ctx/const.json"
+    set regJsonFile "../../../../../autogen/$ctx/$hdl/$sw/reg.json"
+    set constJsonFile "../../../../../autogen/$ctx/$hdl/$sw/const.json"
 
     set pythonPaths "[pwd]/tests/co-simulations/common/python:[pwd]/autogen/$ctx/tb-$sw"
     if {[info exists env(PYTHONPATH)]} {
@@ -53,7 +57,7 @@ namespace eval utils {
 
     hbs::ExecInCoreDir "python3 ../$sw/tb.py \
       $swGwFifo $gwSwFifo \
-      $reg_json_file $const_json_file \
+      $regJsonFile $constJsonFile \
       > $logDir/$hdl.log &"
   }
 

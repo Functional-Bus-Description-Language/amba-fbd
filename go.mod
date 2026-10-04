@@ -2,7 +2,7 @@ module github.com/Functional-Bus-Description-Language/amba-fbd
 
 go 1.26.0
 
-require github.com/Functional-Bus-Description-Language/go-fbdl v0.0.0-20261002100507-39a6dc0fbd8d
+require github.com/Functional-Bus-Description-Language/go-fbdl v0.0.0-20261004115841-01d73adef01b
 
 require (
 	github.com/mattn/go-isatty v0.0.24 // indirect
