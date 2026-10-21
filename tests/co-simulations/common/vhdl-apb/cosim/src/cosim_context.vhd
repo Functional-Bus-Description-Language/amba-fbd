@@ -3,8 +3,8 @@ context cosim_context is
     use ieee.std_logic_1164.all;
     use ieee.numeric_std.all;
 
-  library lapb;
-    use lapb.apb.all;
+  library amba5_apb;
+    use amba5_apb.apb.all;
 
   library ltypes;
     use ltypes.types.all;

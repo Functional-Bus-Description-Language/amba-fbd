@@ -27,8 +27,8 @@ library ieee;
   use ieee.std_logic_1164.all;
   use ieee.numeric_std.all;
 
-library lapb;
-  use lapb.apb;
+library amba5_apb;
+  use amba5_apb.apb;
 
 library ltypes;
   use ltypes.types.all;
@@ -70,7 +70,7 @@ begin
 apb_req <= apb_coms_i(0);
 apb_coms_o(0) <= apb_com;
 {{ else }}
-{{ if .SharedBus }}Shared_Bus: entity lapb.Shared_Bus{{ else }}Crossbar: entity lapb.Crossbar{{ end }}
+{{ if .SharedBus }}Shared_Bus: entity amba5_apb.Shared_Bus{{ else }}Crossbar: entity amba5_apb.Crossbar{{ end }}
 generic map (
   REPORT_PREFIX   => "apb: shared bus: {{.EntityName}}: ",
   REQUESTER_COUNT => {{.MasterCount}},

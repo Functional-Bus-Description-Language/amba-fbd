@@ -5,9 +5,9 @@ library ieee;
 library std;
   use std.textio.all;
 
-library lapb;
-  use lapb.apb.all;
-  use lapb.bfm;
+library amba5_apb;
+  use amba5_apb.apb.all;
+  use amba5_apb.bfm;
 
 
 package cosim is
@@ -62,7 +62,7 @@ package body cosim is
         end if;
         hread(rd_line, data);
 
-        bfm.write(addr, data, clk, req, com, cfg => bfm_config);
+        bfm.write(addr, data, req, com, clk, cfg => bfm_config);
 
         write(wr_line, string'("ACK"));
         writeline(wr_pipe, wr_line);
@@ -70,7 +70,7 @@ package body cosim is
       when 'R' =>
         hread(rd_line, addr);
 
-        bfm.read(addr, clk, req, com, cfg => bfm_config);
+        bfm.read(addr, req, com, clk, cfg => bfm_config);
 
         write(wr_line, to_string(com.rdata));
         writeline(wr_pipe, wr_line);
