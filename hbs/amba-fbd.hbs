@@ -1,6 +1,8 @@
 # This file comes from https://github.com/Functional-Bus-Description-Language/amba-fbd.
 
 namespace eval amba-fbd {
+  set doc "Core for AMBA Functional Bus Description generator."
+
   proc _getVhdlFilesDir {args} {
     set dir ""
     set target ""
@@ -58,5 +60,5 @@ namespace eval amba-fbd {
     }
   }
 
-  hbs::Register
+  hbs::Register $doc
 }
